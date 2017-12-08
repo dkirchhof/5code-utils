@@ -1,0 +1,146 @@
+mainId: null
+startArgs: ''
+libraries: []
+breakpoints: []
+taskDocuments:
+  - id: 8b41286c-6e92-4189-947e-8fa8da69d767
+    name: FormatedOutputExample
+    segmentIds:
+      - e039f717-a049-4237-ae15-faa7b027e33f
+flowDocuments: []
+classDocuments:
+  - id: c27035ea-fa9c-458e-b1da-09a8affc3806
+    name: StyledOutput
+    segmentIds:
+      - 9c4b45a0-b3bd-407d-8944-1543fb955160
+      - 86177e4a-bbb7-44cc-802b-7e73f8a43e84
+      - 5be11f73-49ae-4290-b510-3d4eb9116601
+      - b539e129-af8f-4b33-9b7c-c2a2e15c2051
+      - c1be2621-f507-41a2-9434-2b70f0404ffd
+      - 9ca4160d-16b7-4ef2-978d-8e28b3f9b323
+      - 48acac90-ed00-4c81-9db8-ae87c837b6f8
+      - 4617e927-5367-4856-a667-c21cbcb5914f
+    innerClasses: []
+segments:
+  - type: CodeSegment
+    id: e039f717-a049-4237-ae15-faa7b027e33f
+    name: Gib Hallo Welt aus
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * Gib Hallo Welt aus
+       */
+      final StyledOutput output = new StyledOutput("Hallo Welt")
+          .fgColor("white")
+          .bgColor("red")
+          .fontSize(20);
+
+      System.out.println(output);
+    markers: []
+  - type: CodeSegment
+    id: 9c4b45a0-b3bd-407d-8944-1543fb955160
+    name: StyledOutput
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * Factory-Klasse zum Generieren einer formatierten Ausgabe
+       *
+       * @author daniel
+       */
+      class StyledOutput
+      {
+    markers: []
+  - type: CodeSegment
+    id: 86177e4a-bbb7-44cc-802b-7e73f8a43e84
+    name: private variables
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * private variables
+       */
+      private String message = "";
+      private String style = "";
+    markers: []
+  - type: CodeSegment
+    id: 5be11f73-49ae-4290-b510-3d4eb9116601
+    name: constructor
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * constructor
+       */
+      public StyledOutput(String message)
+      {
+          this.message = message;
+      }
+    markers: []
+  - type: CodeSegment
+    id: b539e129-af8f-4b33-9b7c-c2a2e15c2051
+    name: fgColor
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * set foreground color
+       */
+      public StyledOutput fgColor(String value)
+      {
+          style += String.format("color: %s;", value);
+          return this;
+      }
+    markers: []
+  - type: CodeSegment
+    id: c1be2621-f507-41a2-9434-2b70f0404ffd
+    name: bgColor
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * set background color
+       */
+      public StyledOutput bgColor(String value)
+      {
+          style += String.format("background-color: %s;", value);
+          return this;
+      }
+    markers: []
+  - type: CodeSegment
+    id: 9ca4160d-16b7-4ef2-978d-8e28b3f9b323
+    name: fontSize
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * set font size
+       */
+      public StyledOutput fontSize(int value)
+      {
+          style += String.format("font-size: %spx;", value);
+          return this;
+      }
+    markers: []
+  - type: CodeSegment
+    id: 48acac90-ed00-4c81-9db8-ae87c837b6f8
+    name: toString
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * return formated text
+       */
+      public String toString()
+      {
+          return String.format("<span style='%s'>%s</span>", style, message);
+      }
+    markers: []
+  - type: CodeSegment
+    id: 4617e927-5367-4856-a667-c21cbcb5914f
+    name: ende
+    hidden: true
+    readOnly: true
+    content: '} // ende class'
+    markers: []

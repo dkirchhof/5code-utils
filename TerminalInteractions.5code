@@ -1,0 +1,202 @@
+mainId: null
+startArgs: ''
+libraries: []
+breakpoints: []
+taskDocuments:
+  - id: 15d697ee-d326-4a1a-b183-821a2dc77310
+    name: TerminalInteractionsExample
+    segmentIds:
+      - 452f2d8d-e83e-4aa0-a714-562df118e4f6
+flowDocuments: []
+classDocuments:
+  - id: 20d06693-1928-4070-80cc-fd049e8f0ed3
+    name: InputReader
+    segmentIds:
+      - d8eaba06-f31b-41e0-b7d4-1ad175010e95
+      - 9b4f4c6c-35e5-4aaa-8fd0-2a15bb768c03
+      - 9569330b-ee95-4a08-abb4-6d9c17c23c48
+      - 39c07fae-8df9-4a1f-aa17-f36796165bbe
+      - 399668da-1a39-4346-bfbf-3d9ef6e4fc68
+      - 896c5388-fab1-439c-a47a-7e6703982b0c
+      - fa864930-bc45-4e34-a0ff-4baec597eefb
+    innerClasses: []
+  - id: 83f25ebb-1127-4051-ab3b-d7ecf0f12534
+    name: TerminalInteractions
+    segmentIds:
+      - 71bff505-3236-459b-9fa3-504007538b9a
+      - 51c1d6ad-af39-4b8f-b2d8-aef2784a5fb4
+      - 6c2e681c-e23f-4d5f-852b-11dd599b662f
+      - c126ddd4-922a-42fe-a74c-7dab07674211
+      - e4b30fe4-8bcd-4f2b-bea0-11476ccf92b3
+    innerClasses: []
+segments:
+  - type: CodeSegment
+    id: 452f2d8d-e83e-4aa0-a714-562df118e4f6
+    name: Wähle eine Zahl
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * Wähle eine Zahl
+       */
+      System.out.println("Bitte wähle eine Zahl zwischen 1 und 10");
+
+      for(int i = 1; i <= 10; i++)
+      {
+          System.out.print(TerminalInteractions.inputButton(Integer.toString(i), "", i));
+      }
+
+      System.out.println();
+
+      int number = new InputReader().readInt();
+      System.out.println(String.format("Du hast %d gewählt", number));
+    markers: []
+  - type: CodeSegment
+    id: d8eaba06-f31b-41e0-b7d4-1ad175010e95
+    name: imports
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * imports
+       */
+      //import java.io.*;
+      import java.util.Scanner;
+    markers: []
+  - type: CodeSegment
+    id: 9b4f4c6c-35e5-4aaa-8fd0-2a15bb768c03
+    name: InputReader
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * 
+       *
+       * @author daniel
+       */
+      class InputReader
+      {
+    markers: []
+  - type: CodeSegment
+    id: 9569330b-ee95-4a08-abb4-6d9c17c23c48
+    name: variables
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * variables
+       */
+      private Scanner scanner;
+    markers: []
+  - type: CodeSegment
+    id: 39c07fae-8df9-4a1f-aa17-f36796165bbe
+    name: constructor
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * constructor
+       */
+      InputReader()
+      {
+          scanner = new Scanner(System.in);
+      }
+    markers: []
+  - type: CodeSegment
+    id: 399668da-1a39-4346-bfbf-3d9ef6e4fc68
+    name: readInt
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * 
+       */
+      public int readInt()
+      {
+          return scanner.nextInt();
+      }
+    markers: []
+  - type: CodeSegment
+    id: 896c5388-fab1-439c-a47a-7e6703982b0c
+    name: readString
+    hidden: true
+    readOnly: true
+    content: |-
+      /**
+       * 
+       */
+      public String readString()
+      {
+          return scanner.next();
+      }
+    markers: []
+  - type: CodeSegment
+    id: fa864930-bc45-4e34-a0ff-4baec597eefb
+    name: ende
+    hidden: false
+    readOnly: true
+    content: '} // ende class'
+    markers: []
+  - type: CodeSegment
+    id: 71bff505-3236-459b-9fa3-504007538b9a
+    name: TerminalInteractions
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       *
+       * @author daniel
+       */
+      class TerminalInteractions
+      {
+    markers: []
+  - type: CodeSegment
+    id: 51c1d6ad-af39-4b8f-b2d8-aef2784a5fb4
+    name: inputButton
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      static String inputButton(String text, String style, Object input)
+      {
+          return TerminalInteractions.inputElement("button", text, style, input);
+      }
+    markers: []
+  - type: CodeSegment
+    id: 6c2e681c-e23f-4d5f-852b-11dd599b662f
+    name: inputDiv
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      static String inputDiv(String text, String style, Object input)
+      {
+          return TerminalInteractions.inputElement("div", text, style, input);
+      }
+    markers: []
+  - type: CodeSegment
+    id: c126ddd4-922a-42fe-a74c-7dab07674211
+    name: inputElement
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      private static String inputElement(String type, String text, String style, Object input)
+      {
+          return String.format("<%s style='%s' onclick=\"app.runtime.childProcess.stdin.write(\'%s\\n\')\">%s</%s>", type, style, input, text, type);
+      }
+    markers: []
+  - type: CodeSegment
+    id: e4b30fe4-8bcd-4f2b-bea0-11476ccf92b3
+    name: ende
+    hidden: false
+    readOnly: true
+    content: '} // ende class'
+    markers: []
