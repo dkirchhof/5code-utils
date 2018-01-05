@@ -7,7 +7,13 @@ taskDocuments:
     name: TerminalInteractionsExample
     segmentIds:
       - 452f2d8d-e83e-4aa0-a714-562df118e4f6
-flowDocuments: []
+      - 2a7a291e-3499-437f-8aae-b088d332dbfe
+      - ebc89ad8-d271-4e66-8856-6e0fc7c7d1a8
+flowDocuments:
+  - id: cd09f083-9103-4d1b-a37e-3c95b8f39b4b
+    name: jk
+    segmentIds:
+      - fbf570f2-0a43-484a-bd88-5d7c3e72de51
 classDocuments:
   - id: 20d06693-1928-4070-80cc-fd049e8f0ed3
     name: InputReader
@@ -27,6 +33,9 @@ classDocuments:
       - 51c1d6ad-af39-4b8f-b2d8-aef2784a5fb4
       - 6c2e681c-e23f-4d5f-852b-11dd599b662f
       - c126ddd4-922a-42fe-a74c-7dab07674211
+      - 6be1c9a4-a364-469d-a210-d66af1775833
+      - fe2ca08f-d195-47f0-8b21-01ea4df017a9
+      - f464a166-a0e5-4a0d-8e32-0ff1f2f34c49
       - e4b30fe4-8bcd-4f2b-bea0-11476ccf92b3
     innerClasses: []
 segments:
@@ -48,9 +57,41 @@ segments:
 
       System.out.println();
 
-      int number = new InputReader().readInt();
+      final int number = new InputReader().readInt();
       System.out.println(String.format("Du hast %d gewählt", number));
     markers: []
+  - type: CodeSegment
+    id: 2a7a291e-3499-437f-8aae-b088d332dbfe
+    name: Zeige eine MsgBox mit "Hallo Welt" an
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * Zeige eine MsgBox mit "Hallo Welt" an
+       */
+      TerminalInteractions.call5codeApi("alert('Hallo Welt')");
+    markers: []
+  - type: CodeSegment
+    id: ebc89ad8-d271-4e66-8856-6e0fc7c7d1a8
+    name: Gib ein paar Statistiken des Projekts aus
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * Gib ein paar Statistiken des Projekts aus
+       */
+      final String projectName = TerminalInteractions.getValueFrom5code("app.project.name");
+      final String projectFolder = TerminalInteractions.getValueFrom5code("app.project.projectFolder");
+
+      System.out.println(String.format("Das Projekt '%s' liegt im Ordner '%s'", projectName, projectFolder));
+    markers: []
+  - type: TextSegment
+    id: fbf570f2-0a43-484a-bd88-5d7c3e72de51
+    name: jk
+    hidden: false
+    readOnly: false
+    content:
+      ops: []
   - type: CodeSegment
     id: d8eaba06-f31b-41e0-b7d4-1ad175010e95
     name: imports
@@ -191,6 +232,51 @@ segments:
       private static String inputElement(String type, String text, String style, Object input)
       {
           return String.format("<%s style='%s' onclick=\"app.runtime.childProcess.stdin.write(\'%s\\n\')\">%s</%s>", type, style, input, text, type);
+      }
+    markers: []
+  - type: CodeSegment
+    id: 6be1c9a4-a364-469d-a210-d66af1775833
+    name: clearConsole
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      static void clearConsole()
+      {
+          System.out.println("5code:app.terminal.element.clear()");
+      }
+    markers: []
+  - type: CodeSegment
+    id: fe2ca08f-d195-47f0-8b21-01ea4df017a9
+    name: call5codeApi
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      static void call5codeApi(String command)
+      {
+          System.out.println("5code:" + command);
+      }
+    markers: []
+  - type: CodeSegment
+    id: f464a166-a0e5-4a0d-8e32-0ff1f2f34c49
+    name: getValueFrom5code
+    hidden: false
+    readOnly: false
+    content: |-
+      /**
+       * 
+       */
+      static String getValueFrom5code(String value)
+      {
+          System.out.println(String.format("5code:app.runtime.childProcess.stdin.write(%s + '\\n')", value));
+          String result = new InputReader().readString();
+          
+          return result;
       }
     markers: []
   - type: CodeSegment
